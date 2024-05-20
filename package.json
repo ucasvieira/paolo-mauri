@@ -12,8 +12,6 @@
     "@emailjs/browser": "^4.3.3",
     "@formatjs/intl-localematcher": "^0.5.4",
     "@mantine/core": "^7.9.2",
-    "@mantine/form": "^7.9.2",
-    "@mantine/hooks": "^7.9.2",
     "@sanity/document-internationalization": "^3.0.0",
     "@sanity/vision": "^3.42.1",
     "negotiator": "^0.6.3",
