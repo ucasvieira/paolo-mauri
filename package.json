@@ -1,0 +1,45 @@
+{
+  "name": "paolo-mauri",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.3.3",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@formatjs/intl-localematcher": "^0.5.4",
+    "@mui/material": "^5.15.18",
+    "@sanity/asset-utils": "^1.3.0",
+    "@sanity/document-internationalization": "^3.0.0",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.42.1",
+    "negotiator": "^0.6.3",
+    "next": "14.2.3",
+    "next-sanity": "^9.0.20",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.2.1",
+    "sanity": "^3.42.1",
+    "sharp": "^0.33.4",
+    "styled-components": "^6.1.11",
+    "styled-react-modal": "^3.1.1"
+  },
+  "devDependencies": {
+    "@types/i18n": "^0.13.12",
+    "@types/negotiator": "^0.6.3",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/styled-react-modal": "^1.2.5",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

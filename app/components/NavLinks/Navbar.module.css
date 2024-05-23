@@ -1,0 +1,50 @@
+.navbar {
+    position: relative;
+}
+
+.hamburger {
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+
+.navList {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+
+.navItem {
+    margin: 0 10px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .navList {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        width: 100%;
+        border-top: 1px solid #ccc;
+    }
+
+    .showMenu {
+        display: flex;
+    }
+
+    .navItem {
+        margin: 10px 0;
+    }
+}
