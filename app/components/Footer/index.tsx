@@ -9,9 +9,11 @@ import emailjs from '@emailjs/browser';
 import ProfileIcon from '@/public/assets/profile-icon.svg'
 import MailIcon from '@/public/assets/mail-icon.svg'
 import TextareIcon from '@/public/assets/textare-icon.svg'
+import { useLogic } from "../Header/useLogic";
 
 export default function Footer() {
     const form = useRef();
+    const { currentWindow } = useLogic()
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -40,12 +42,13 @@ export default function Footer() {
             after:content-[''] after:absolute after:bg-transparent after:bottom-[-82px] after:h-[82px]
             after:right-0 after:top-[-82px] after:w-[25px] after:rounded-br-[41px] after:shadow-[0_20px_0_0_#0C2120]
         ">
-            <div className="flex flex-col items-center px-4 pb-8 rounded-[45px_45px_0px_0px] max-md:mr-1 max-md:max-w-full">
+            <div className="flex flex-col items-center px-4 pb-8 rounded-[45px_45px_0px_0px] max-md:px-[46px] max-md:max-w-full">
                 <div className="mt-16 max-w-full w-[800px] max-md:mt-8">
                     <div className="flex gap-4 max-md:flex-col max-md:gap-2">
                         <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
                             <div className="flex flex-col grow text-xl text-red-50 max-md:mt-8 max-md:max-w-full">
-                                <div className="font-fonttitulo -mr-px text-[#FDF4F1] text-5xl font-extrabold tracking-tighter text-left mix-blend-difference leading-[48px] max-md:max-w-full max-md:text-3xl">
+                                <div className="font-fonttitulo -mr-px text-[#FDF4F1] text-5xl font-extrabold tracking-tighter 
+                                    text-left mix-blend-difference leading-[48px] max-md:max-w-full max-md:text-3xl max-md:[text-align-last:center]">
                                     Parla con me
                                 </div>
                                 <div className="mt-5 text-[#FDF4F1] max-md:max-w-full">
@@ -69,7 +72,9 @@ export default function Footer() {
                         </div>
                         <div className="flex flex-col ml-4 w-6/12 max-md:ml-0 max-md:w-full">
                             <form className="flex flex-col grow text-xl font-bold tracking-wide text-red-50 max-md:mt-8 max-md:max-w-full" ref={form as any} onSubmit={sendEmail}>
-                                <div className="flex gap-4 items-center px-6 py-5 whitespace-nowrap rounded-2xl border border-teal-400 border-solid max-md:flex-wrap max-md:px-4 shadow-[0_0_7px_-1px_#00FFB2]">
+                                <div className="flex gap-4 items-center px-6 py-5 whitespace-nowrap rounded-2xl border border-teal-400 border-solid max-md:px-4 shadow-[0_0_7px_-1px_#00FFB2]" style={{
+                                    borderRadius: currentWindow?.innerWidth < 1024 ? '33px' : '20px'
+                                }}>
                                     <Image
                                         src={ProfileIcon}
                                         width={10}
@@ -85,7 +90,9 @@ export default function Footer() {
                                         
                                     />
                                 </div>
-                                <div className="flex gap-4 items-center px-6 py-5 mt-3 whitespace-nowrap rounded-2xl border border-teal-400 border-solid max-md:flex-wrap max-md:px-4 shadow-[0_0_7px_-1px_#00FFB2]">
+                                <div className="flex gap-4 items-center px-6 py-5 mt-3 whitespace-nowrap rounded-2xl border border-teal-400 border-solid max-md:px-4 shadow-[0_0_7px_-1px_#00FFB2]" style={{
+                                    borderRadius: currentWindow?.innerWidth < 1024 ? '33px' : '20px'
+                                }}>
                                     <Image
                                         src={MailIcon}
                                         width={9}
@@ -101,7 +108,9 @@ export default function Footer() {
                                         
                                     />
                                 </div>
-                                <div className="flex gap-4 items-start px-6 pt-5 pb-16 mt-3 rounded-2xl border border-teal-400 border-solid max-md:flex-wrap max-md:px-4 shadow-[0_0_7px_-1px_#00FFB2]">
+                                <div className="flex gap-4 items-start px-6 pt-5 pb-16 mt-3 rounded-2xl border border-teal-400 border-solid max-md:px-4 shadow-[0_0_7px_-1px_#00FFB2]" style={{
+                                    borderRadius: currentWindow?.innerWidth < 1024 ? '33px' : '20px'
+                                }}>
                                     <Image
                                         src={TextareIcon}
                                         width={9}
@@ -123,13 +132,13 @@ export default function Footer() {
                                     INVIARE
                                 </button>
                             </form>
-                            <div className="self-center mt-12 md:hidden md:self-center justify-self-center text-center">
+                            <div className="flex flex-col self-center mt-12 md:hidden md:self-center justify-self-center text-center gap-[16px]">
                                 Seguimi sui social
                                 <div className="flex justify-center space-x-6 text-2xl">
-                                    <AiFillYoutube />
-                                    <FaInstagram />
-                                    <BsTwitterX />
-                                    <FaFacebookF />
+                                    <AiFillYoutube fontSize={24}/>
+                                    <FaInstagram fontSize={24}/>
+                                    <BsTwitterX fontSize={24}/>
+                                    <FaFacebookF fontSize={24}/>
                                 </div>
                             </div>
                         </div>

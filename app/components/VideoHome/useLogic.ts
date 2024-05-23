@@ -9,7 +9,7 @@ export const useLogic = () => {
     useEffect(() => {
         const handleFetch = async () => {
             const { video }: any = await getObject('videoBanner')
-            const { url } = await getFileAsset(video?.asset?._ref, {
+            const { url } = getFileAsset(video?.asset?._ref, {
                 projectId: process?.env?.NEXT_PUBLIC_SANITY_PROJECT_ID,
                 dataset: 'production'
             })

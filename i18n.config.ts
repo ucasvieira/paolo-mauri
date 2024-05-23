@@ -1,7 +1,7 @@
 
 const languages = [
-    { id: 'pt', title: 'Portuguese' },
     { id: 'it', title: 'Italian', isDefault: true },
+    { id: 'en', title: 'English' },
   ];
   
   const i18n = {

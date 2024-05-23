@@ -20,8 +20,12 @@
 }
 
 * {
- font-family: 'Cairo', sans-serif;
- margin: 0;
+  font-family: 'Helvetica Nue', sans-serif;
+  margin: 0;
+}
+
+nav > div {
+  font-family: 'Codec Cold Trial', sans-serif !important;
 }
 
 body {

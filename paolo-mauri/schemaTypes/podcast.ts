@@ -7,10 +7,6 @@ export default {
            name: 'video',
            title: 'video',
            type: 'file',
-           of: [{ type: 'file' }],
-            options: {
-                hotspot: true,
-            }
         },
         {
             name: 'name',

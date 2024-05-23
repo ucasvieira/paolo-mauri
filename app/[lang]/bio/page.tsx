@@ -8,6 +8,7 @@ import BioInfo from "@/app/components/BioInfo";
 
 export default async function Page({params}: SlugProps) {
   const fetchedNavs = await getByLang(params?.lang as string, 'nav')
+  
   const translations: any = []
   i18n.languages.map<any[]>(((lang) => translations.push(lang?.id)));
 

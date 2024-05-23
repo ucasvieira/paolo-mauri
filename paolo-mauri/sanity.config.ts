@@ -19,7 +19,7 @@ export default defineConfig({
     visionTool(),
     documentInternationalization({
       supportedLanguages: i18n.languages,
-      schemaTypes: ['gallery', 'podcast', 'article', 'geopolitic', 'defend', 'blog', 'nav', 'videoBanner'],
+      schemaTypes: ['gallery', 'podcast', 'article', 'geopolitic', 'defend', 'blog', 'nav', 'videoBanner', 'geopoliticNav'],
     }),
   ],
   schema: {

@@ -1,10 +1,8 @@
 
-import { getByLang } from "@/paolo-mauri/sanity.utils";
-import SlugPage from "./[slug]/page";
 import { SlugProps } from "../types";
+import SlugPage from "./[slug]/page";
 
-export default async function Home({ params }: SlugProps) {
-  const fetchedNavs = await getByLang(params?.lang as string, 'nav')
+export default async function Home({params}: SlugProps) {
 
-  return <SlugPage fetchedNavs={fetchedNavs as never}/>
+  return <SlugPage params={params}/>
 }

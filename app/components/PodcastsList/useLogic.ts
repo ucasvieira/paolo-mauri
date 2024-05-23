@@ -1,3 +1,4 @@
+
 import { getByLang } from "@/paolo-mauri/sanity.utils";
 import { getFileAsset } from "@sanity/asset-utils";
 import { useEffect, useState } from "react";
@@ -16,14 +17,14 @@ export const useLogic = ({language}: LanguageProps) => {
                     projectId: process?.env?.NEXT_PUBLIC_SANITY_PROJECT_ID,
                     dataset: 'production'
                 })
-                list.push(url);
+                list.push({url, description: podcast.description});
             });
             setPodcastsUrlList(list);
         }
 
         handleFetch()
     },[language])
-
+    
     return {
         podcastsUrlList
     }

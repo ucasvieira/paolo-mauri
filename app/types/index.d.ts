@@ -5,5 +5,10 @@ export interface SlugProps {
 };
 
 export interface SlugWithFetchProps extends PageProps {
-    fetchedNavs: never;
+    translations?: never;
+    fetchedNavs?: never;
+    fetchedGeopoliticNavs?: never;
+    isGeopoliticNav?: boolean;
+    newClassName?: string;
+    isMap?: boolean;
 };

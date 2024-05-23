@@ -13,7 +13,7 @@ export default function VideoHome() {
     return (
         <div className="w-full relative">
             <Suspense fallback={<></>}>
-                <VideoComponent fileName={videoUrl} className={''} />
+                <VideoComponent fileName={videoUrl} className={undefined} style={undefined}/>
             </Suspense>
 
             <div className="flex flex-col gap-[33px] items-center justify-center text-justify w-full h-full font-bold px-[40px] mb-[240px]">
@@ -21,7 +21,7 @@ export default function VideoHome() {
                     fontSize: currentWindow?.innerWidth < 1024 ? 24 : 48
                 }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
 
-                <h1 className="max-w-[820px] bg-[#236A67] bg-opacity-30 px-[8%] py-[5%] rounded-[24px] font-normal" style={{
+                <h1 className="max-w-[820px] bg-[#236A67] bg-opacity-30 px-[5%] py-[5%] rounded-[24px] font-normal" style={{
                     fontSize: currentWindow?.innerWidth < 1024 ? 10 : 20,
                 }}>
                     Paolo Mauri è un giornalista pubblicista milanese che si occupa di analisi nell’ambito delle Forze Armate, della Difesa, di politica estera e geopolitica. Nato a Milano nel 1978 scrive per 
