@@ -15,8 +15,8 @@ export default async function Page({params}: SlugProps) {
   return (
     <>
       <Header translations={translations} fetchedNavs={fetchedNavs}/>
-      <BioInfo />
-      <Footer />
+      <BioInfo language={params?.lang} />
+      <Footer language={params?.lang}/>
     </>
   );
 }

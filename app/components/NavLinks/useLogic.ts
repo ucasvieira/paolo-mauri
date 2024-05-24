@@ -20,9 +20,9 @@ export const useLogic = ({fetchedNavs, fetchedGeopoliticNavs, isGeopoliticNav}: 
         } else {
             if(fNav.title.toLowerCase().includes('geopolitic')){
                 return navArray.push({title: fNav.title, href: 'article/geopolitic', position: 1})
-            } else if (fNav.title.toLowerCase().includes('fesa')){
-                return navArray.push({title: fNav.title, href: 'article/defend', position: 2})
-            } else if (fNav.title.toLowerCase().includes('tegia')){
+            } else if (fNav.title.toLowerCase().includes('def')){
+                return navArray.push({title: fNav.title, href: 'article/defense', position: 2})
+            } else if (fNav.title.toLowerCase().includes('teg')){
                 return navArray.push({title: fNav.title, href: 'article/strategy', position: 3})
             } 
         }});

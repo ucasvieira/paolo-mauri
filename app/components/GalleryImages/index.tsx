@@ -78,7 +78,7 @@ export default function GalleryImages({ language }: LanguageProps){
                         background:  layoutType === 'row' ? 'linear-gradient(#E7F3F8, #9AA7AB)' : 'transparent',
                         borderRadius:  layoutType === 'row' ? '23px' : isBig ? '10px' : '0',
                     }}>
-                        <Image unoptimized src={photo.url} width={300} height={300} alt='gallery image' style={{
+                        <Image unoptimized priority  src={photo.url} width={300} height={300} alt='gallery image' style={{
                             width: layoutType === 'row' ? '80px' : isBig ? '100%' : 'auto',
                             height: layoutType === 'row' ? '79px' : isBig ? '100%' : 'auto',
                             borderTopLeftRadius: layoutType !== 'row' ? '10px' : '23px',
@@ -107,7 +107,7 @@ export default function GalleryImages({ language }: LanguageProps){
                         cursor: 'pointer',
                         zIndex: 50
                     }} onClick={() => handleOpenZoom(photoZoom)}/>
-                        <Image unoptimized src={photoZoom} width={300} height={300} alt='gallery image' style={{
+                        <Image unoptimized priority  src={photoZoom} width={300} height={300} alt='gallery image' style={{
                             width: '100%',
                             height: '100%',
                             padding: '80px',

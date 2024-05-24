@@ -16,7 +16,7 @@ export default async function Slug({params}: SlugProps) {
     <main className='relative'>
       <Header translations={translations} fetchedNavs={fetchedNavs as any}/>
       <VideoHome />
-      <Footer/>
+      <Footer language={params?.lang}/>
     </main>
   );
 }

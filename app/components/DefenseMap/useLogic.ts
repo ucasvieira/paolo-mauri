@@ -12,35 +12,30 @@ export const useLogic = () => {
   const handleChangeFocusClass = (country: string) => {
 
     const listOfElementsFocused = [
-      'blue-pin-focus',
-      'blue-pin-2-focus',
-      'north-focus',
-      'south-focus',
-      'asia-focus',
-      'europe-focus'
+      'red-pin-focus',
+      'red-pin-2-focus',
+      'red-pin-3-focus',
+      'red-pin-4-focus',
+      'europe-defense-focus'
     ]
     const listOfElements = [
-      'blue-pin',
-      'blue-pin-2',
-      'north',
-      'south',
-      'asia',
-      'europe'
+      'red-pin',
+      'red-pin-2',
+      'red-pin-3',
+      'red-pin-4',
+      'europe-defense'
     ]
 
     listOfElementsFocused.forEach((item) => !document.getElementById(item)?.hasAttribute('hidden') && document.getElementById(item)?.toggleAttribute('hidden'))
     listOfElements.forEach((item) => document.getElementById(item)?.hasAttribute('hidden') && document.getElementById(item)?.toggleAttribute('hidden'))
 
-    //limpa todos os países primeiramente
+    if(document.getElementById('europe-defense-focus')?.hasAttribute('hidden')) {
+      document.getElementById('europe-defense-focus')?.toggleAttribute('hidden')
+      document.getElementById('europe-defense')?.toggleAttribute('hidden')
+    }
 
     document.getElementById(country)?.toggleAttribute('hidden')
     document.getElementById(`${country}-focus`)?.toggleAttribute('hidden')
-
-    if(country.includes('blue-pin') && document.getElementById('blue-pin-focus')?.hasAttribute('hidden') || 
-      country.includes('blue-pin') && document.getElementById('blue-pin-2-focus')?.hasAttribute('hidden')
-    ) {
-      return document.getElementById(`asia-focus`)?.toggleAttribute('hidden')
-    }
   }
   
   const toggleDrawer = (open: boolean) => {
@@ -68,6 +63,6 @@ export const useLogic = () => {
       showMap, 
       openDrawer, 
       toggleDrawer, 
-      handleChangeFocusClass
+      handleChangeFocusClass,
   }
 }

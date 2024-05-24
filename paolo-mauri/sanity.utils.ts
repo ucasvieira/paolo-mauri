@@ -24,11 +24,3 @@ export async function getObjects(type?: string): Promise<any[]> {
 
   return object;
 }
-
-export async function getByID( id?: string): Promise<any[]> {
-  const postQuery = groq`*[_id == '${id}'][0]`;
-
-  const posts = await client.fetch(postQuery);
-
-  return posts;
-}

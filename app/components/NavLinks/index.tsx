@@ -19,19 +19,27 @@ export default function NavLinks({ fetchedNavs, fetchedGeopoliticNavs, isGeopoli
                 minHeight: isGeopoliticNav && currentWindow?.innerWidth < 1024 ? '252px' : '300px'
             }}
         >
-            {navArray?.sort((a, b) => a.position - b.position).map((nav) => (
-                <div key={nav.title} onClick={() => router.push(`/${nav.href !== 'home' ? nav.href.toLowerCase() : ''}`)} 
+            {navArray?.sort((a, b) => a.position - b.position).map((nav) => {
+                return (
+                <div key={nav.title} onClick={() => router.push(
+                    `/${nav.href !== 'home' ? 
+                        nav.href.includes('geo') ? 
+                            `${path.split('/')[1]}/article` :
+                                nav.href.toLowerCase() :
+                    ''}`
+                )} 
                     className={
                         `flex text-[#5CFAF7] font-extrabold w-max uppercase cursor-pointer transition-all ease-in-out duration-500
                         ${
                             path.split('/')[2]?.includes(nav.href) || 
                             !path.split('/')[2] && nav.href.includes('home') ||
+                            !path.split('/')[3] && path.split('/')[2] === 'article' && nav.href.includes('geo') ||
                             nav.href.includes(path.split('/')[3]) ? 'opacity-30' : ''
                         }`
                     }>
                     {nav.title}
                 </div>
-            ))}
+            )})}
         </nav>
     );
 }

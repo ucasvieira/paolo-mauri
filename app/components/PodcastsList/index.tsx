@@ -7,6 +7,7 @@ import PlayButton from '@/public/assets/play-video-icon.svg'
 import { Suspense } from "react";
 import { useLogic } from "./useLogic";
 import Image from "next/image";
+import { podLogic } from "./infoLogic";
 
 export interface LanguageProps {
   language?: string;
@@ -15,6 +16,7 @@ export interface LanguageProps {
 export default function PodcastsList({ language }: LanguageProps) {
   const { podcastsUrlList } = useLogic({language})
   const { currentWindow } = headerUseLogic()
+  const { podcastinfo} = podLogic({ language})
 
   return (
     <div className="flex bg-[#001116] items-start justify-center w-full gap-[5%]" style={{
@@ -32,15 +34,13 @@ export default function PodcastsList({ language }: LanguageProps) {
           overflowWrap: 'break-word',
           lineHeight: '51px'
         }}>
-          PodCasts
+        PodCasts
         </h1>
         <span className="max-w-[60%]" style={{
           textAlign: currentWindow?.innerWidth < 1024 ? 'justify' : 'right',
           paddingBottom: currentWindow?.innerWidth < 1024 ? '87px' : '0'
         }}>
-          Ascolta i nostri podcasts per discussioni approfondite sulla geopolitica, difesa e politica estera. La nostra trasmissione 
-          fornisce approfondimenti e analisi uniche sui temi più importanti del nostro tempo. 
-          Vi proponiamo interviste esclusive con i principali attori del mondo della geopolitica, della difesa e della politica estera.
+          {podcastinfo?.text}
         </span>
       </div>
       <div className="flex flex-col w-full h-full items-start relative gap-[25px] pb-[87px]" style={{
@@ -50,8 +50,8 @@ export default function PodcastsList({ language }: LanguageProps) {
       }}>
         {podcastsUrlList?.map((podcast: any, index: number) => (
           <Suspense fallback={<></>} key={index}>
-            <VideoComponent fileName={podcast.url} className="max-w-[660px] max-h-[372px] object-cover rounded-[29px] z-50 relative w-full">
-              <div id="fade-background" className="max-w-[660px] max-h-[372px] flex items-end absolute bottom-0 z-50 px-[36px] py-[12px] w-full" style={{
+            <VideoComponent fileName={podcast.url} className="max-w-[660px] max-h-[372px] object-cover rounded-[29px] z-[9] relative w-full">
+              <div id="fade-background" className="max-w-[660px] max-h-[372px] flex items-end absolute bottom-0 z-[9] px-[36px] py-[12px] w-full" style={{
                 paddingLeft: currentWindow?.innerWidth < 1024 ? '16px' : '32px',
                 paddingRight: currentWindow?.innerWidth < 1024 ? '16px' : '32px',
               }}>

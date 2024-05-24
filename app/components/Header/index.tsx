@@ -18,7 +18,7 @@ export default function Header({translations, fetchedNavs, fetchedGeopoliticNavs
   const path = usePathname()
   const { currentWindow, openMenu, hideHeader, handleOpenMenu, handleHideHeader } = useLogic()
 
-  const isMap = (path.includes('article') && !path?.split('/')[3]?.length || path.includes('defend'))
+  const isMap = (path.includes('article') && !path?.split('/')[3]?.length) || path.includes('defense')
 
   return (
     <section 
@@ -31,9 +31,9 @@ export default function Header({translations, fetchedNavs, fetchedGeopoliticNavs
       <div className="flex flex-col w-full" style={{
         visibility: hideHeader ? 'hidden' : 'initial'
       }}>
-        <Image src={LogoPaolo} width={239} height={120} alt="Paolo Mauri Logo" className="cursor-pointer w-full 2xsmall:w-[45%] lg:w-[30%] pt-[12px]" onClick={() => router.push('/')}/>
+        <Image unoptimized priority  src={LogoPaolo} width={239} height={120} alt="Paolo Mauri Logo" className="cursor-pointer w-full 2xsmall:w-[45%] lg:w-[30%] pt-[12px]" onClick={() => router.push('/')}/>
 
-        {fetchedGeopoliticNavs?.length && !path.includes('strategy') ? (
+        {fetchedGeopoliticNavs?.length && currentWindow?.innerWidth >= 1024 ? (
           <NavLinks isGeopoliticNav fetchedGeopoliticNavs={fetchedGeopoliticNavs as never} isMap={isMap}/>
         ): <></>}
       </div>
@@ -44,7 +44,7 @@ export default function Header({translations, fetchedNavs, fetchedGeopoliticNavs
         visibility: hideHeader ? 'hidden' : 'initial',
         maxHeight: hideHeader ? '20px' : 'none'
       }}>
-        {currentWindow?.innerWidth < 1024 && !isMap ? (
+        {currentWindow?.innerWidth < 1024 ? (
             <Image src={SandwichMenu} width={45} height={45} alt="Sandwich Menu" className="cursor-pointer" onClick={handleOpenMenu}/>
         ) : (
           <>

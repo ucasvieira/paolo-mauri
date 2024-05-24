@@ -9,11 +9,17 @@ import emailjs from '@emailjs/browser';
 import ProfileIcon from '@/public/assets/profile-icon.svg'
 import MailIcon from '@/public/assets/mail-icon.svg'
 import TextareIcon from '@/public/assets/textare-icon.svg'
-import { useLogic } from "../Header/useLogic";
+import { useLogic as headerUseLogic } from '../Header/useLogic';
+import { useLogic } from './useLogic';
 
-export default function Footer() {
+export interface LanguageProps {
+    language?: string;
+  }
+export default function Footer({ language }: LanguageProps) {
     const form = useRef();
-    const { currentWindow } = useLogic()
+    const { currentWindow } = headerUseLogic()
+    const { footerdata} = useLogic({ language})
+    
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -49,18 +55,15 @@ export default function Footer() {
                             <div className="flex flex-col grow text-xl text-red-50 max-md:mt-8 max-md:max-w-full">
                                 <div className="font-fonttitulo -mr-px text-[#FDF4F1] text-5xl font-extrabold tracking-tighter 
                                     text-left mix-blend-difference leading-[48px] max-md:max-w-full max-md:text-3xl max-md:[text-align-last:center]">
-                                    Parla con me
+                                    {footerdata?.title}
                                 </div>
                                 <div className="mt-5 text-[#FDF4F1] max-md:max-w-full">
-                                    Se sei interessato a collaborazioni, interviste o
-                                    semplicemente vuoi discutere argomenti rilevanti, sono aperto
-                                    al dialogo. Utilizza il modulo sottostante per contattarci o
-                                    connetterti tramite i social media.
+                                    {footerdata?.text?.[0]?.children?.[0].text}
                                     <br />
-                                    Grazie!
+                                    {footerdata?.text?.[2]?.children?.[0].text}
                                 </div>
                                 <div className="self-start mt-12 max-md:hidden max-md:mt-8">
-                                    Seguimi sui social
+                                    {footerdata?.text?.[4]?.children?.[0].text}
                                     <div className="flex space-x-6 text-2xl pt-3 ">
                                         <AiFillYoutube />
                                         <FaInstagram />
@@ -85,7 +88,7 @@ export default function Footer() {
                                     <input
                                         type="text"
                                         name="user_name"
-                                        placeholder="Nome"
+                                        placeholder={footerdata?.textInputs?.[0]?.children?.[0].text}
                                         className="flex-auto bg-transparent border-none outline-none text-[#FDF4F1]"
                                         
                                     />
@@ -103,7 +106,7 @@ export default function Footer() {
                                     <input
                                         type="email"
                                         name="user_email"
-                                        placeholder="Email"
+                                        placeholder={footerdata?.textInputs?.[1]?.children?.[0].text}
                                         className="flex-auto bg-transparent border-none outline-none text-[#FDF4F1]"
                                         
                                     />
@@ -120,7 +123,7 @@ export default function Footer() {
                                     />
                                     <textarea
                                         name="message"
-                                        placeholder="Lascia qui il tuo messaggio"
+                                        placeholder={footerdata?.textInputs?.[2]?.children?.[0].text}
                                         className="flex-auto bg-transparent border-none outline-none text-[#FDF4F1] h-full resize-none"
                                     />
                                 </div>
@@ -129,7 +132,7 @@ export default function Footer() {
                                     className="mt-3 px-6 py-2 rounded-2xl w-full flex justify-end text-[#FDF4F1]"
                                     value="Send"
                                 >
-                                    INVIARE
+                                    {footerdata?.textInputs?.[3]?.children?.[0].text}
                                 </button>
                             </form>
                             <div className="flex flex-col self-center mt-12 md:hidden md:self-center justify-self-center text-center gap-[16px]">

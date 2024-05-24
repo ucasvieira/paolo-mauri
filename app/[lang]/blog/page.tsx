@@ -15,7 +15,7 @@ export default async function Page({params}: SlugProps) {
     <>
       <Header translations={translations} fetchedNavs={fetchedNavs}/>
       <BlogInfo language={params?.lang}/>
-      <Footer />
+      <Footer language={params?.lang}/>
     </>
   );
 }

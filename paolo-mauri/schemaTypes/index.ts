@@ -8,5 +8,8 @@ import blog from './blog';
 import nav from './nav';
 import videoBanner from './videoBanner';
 import geopoliticNav from './geopoliticNav';
+import bio from "./bio";
+import footer from "./footer";
+import podinfo from "./podinfo";
 
-export const schemaTypes = [gallery, podcast, article, geopolitic, defend, localizedSlug, blog, nav, videoBanner, geopoliticNav]
+export const schemaTypes = [gallery, podinfo, footer, podcast, article, geopolitic, defend, localizedSlug, blog, bio, nav, videoBanner, geopoliticNav]
