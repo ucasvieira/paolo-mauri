@@ -11,5 +11,6 @@ import geopoliticNav from './geopoliticNav';
 import bio from "./bio";
 import footer from "./footer";
 import podinfo from "./podinfo";
+import homeInfo from "./homeInfo";
 
-export const schemaTypes = [gallery, podinfo, footer, podcast, article, geopolitic, defend, localizedSlug, blog, bio, nav, videoBanner, geopoliticNav]
+export const schemaTypes = [gallery, homeInfo, podinfo, footer, podcast, article, geopolitic, defend, localizedSlug, blog, bio, nav, videoBanner, geopoliticNav]
