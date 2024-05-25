@@ -30,7 +30,12 @@ export default {
             ],
             layout: 'radio'
           }
-    }
+    },
+    {
+      name: 'newsletter',
+      title: 'News Letter text',
+      type: 'string',
+    },
     ],
   }
   
